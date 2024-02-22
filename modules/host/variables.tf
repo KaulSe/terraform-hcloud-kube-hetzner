@@ -77,6 +77,18 @@ variable "server_type" {
   type        = string
 }
 
+variable "public_net" {
+  type = object({
+    ipv4_enabled = bool
+    ipv6_enabled = bool
+  })
+
+  default = {
+    ipv4_enabled = false
+    ipv6_enabled = false
+  }
+}
+
 variable "backups" {
   description = "Enable automatic backups via Hetzner"
   type        = bool

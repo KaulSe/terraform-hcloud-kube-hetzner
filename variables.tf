@@ -167,6 +167,8 @@ variable "control_plane_nodepools" {
   type = list(object({
     name                       = string
     server_type                = string
+    public_net_ipv4_enabled    = optional(bool)
+    public_net_ipv6_enabled    = optional(bool)
     location                   = string
     backups                    = optional(bool)
     labels                     = list(string)

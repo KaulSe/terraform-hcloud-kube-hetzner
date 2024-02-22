@@ -23,6 +23,7 @@ resource "hcloud_server" "server" {
   name               = local.name
   image              = var.microos_snapshot_id
   server_type        = var.server_type
+  public_net         = var.public_net
   location           = var.location
   ssh_keys           = var.ssh_keys
   firewall_ids       = var.firewall_ids
