@@ -167,8 +167,7 @@ variable "control_plane_nodepools" {
   type = list(object({
     name                       = string
     server_type                = string
-    public_net_ipv4_enabled    = optional(bool)
-    public_net_ipv6_enabled    = optional(bool)
+    public_net                 = optional(public_net)
     location                   = string
     backups                    = optional(bool)
     labels                     = list(string)
@@ -199,6 +198,7 @@ variable "agent_nodepools" {
   type = list(object({
     name                       = string
     server_type                = string
+    public_net                 = optional(public_net)
     location                   = string
     backups                    = optional(bool)
     floating_ip                = optional(bool)
@@ -277,6 +277,7 @@ variable "autoscaler_nodepools" {
   type = list(object({
     name        = string
     server_type = string
+    public_net  = optional(public_net)
     location    = string
     min_nodes   = number
     max_nodes   = number
